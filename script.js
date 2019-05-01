@@ -19,7 +19,6 @@ chrome.storage.local.get(['username', 'email'], function(result) {
 });
 
 window.onbeforeunload =  async function(event) {
-  console.log(issues, username, email);
   let data = {
     username,
     email,
