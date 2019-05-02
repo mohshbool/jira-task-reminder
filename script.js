@@ -27,7 +27,7 @@ window.onbeforeunload =  async function(event) {
   for (let { issueKey, issueTitle } of issues) {
     data.issues.push({ issueKey, issueTitle });
   }
-  await fetch('https://jira-task-reminder.glitch.me/sendmail', {
+  await fetch('https://jira-task-reminder-mailer.herokuapp.com/sendmail', {
     headers: { "Content-Type": "application/json; charset=utf-8" },
     method: 'POST',
     body: JSON.stringify(data)
