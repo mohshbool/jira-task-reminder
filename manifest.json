@@ -1,5 +1,5 @@
 {
-  "name": "Jira Task Reminder Extension",
+  "name": "Jira Task Reminder",
   "version": "1.0",
   "description": "A helper chrome extension that helps your to never forget a task open!",
   "browser_action": {
