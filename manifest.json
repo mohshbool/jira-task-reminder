@@ -2,19 +2,20 @@
   "name": "Jira Task Reminder Extension",
   "version": "1.0",
   "description": "A helper chrome extension that helps your to never forget a task open!",
-  "background": {
-    "scripts": ["background.js"],
-    "persistent": false
-  },
   "browser_action": {
     "default_popup": "popup.html"
   },
   "permissions": [ 
     "storage",
-    "activeTab", 
     "tabs",
-    "http://*/*",
-    "https://*/*"
+    "https://*.atlassian.net/secure/*",
+    "https://jira-task-reminder-mailer.herokuapp.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://*.atlassian.net/secure/*"],
+      "js": ["script.js"]
+    }
   ],
   "icons": {
     "16": "images/img16.png",
