@@ -1,3 +1,5 @@
+const AUTH = "<TOKEN>";
+
 let issues = [], username = '', email = '';
 chrome.storage.local.get(['username', 'email'], function(result) {
   const { username: usernameS, email: emailS } = result;
@@ -28,7 +30,10 @@ window.onbeforeunload =  async function(event) {
     data.issues.push({ issueKey, issueTitle });
   }
   await fetch('https://jira-task-reminder-mailer.herokuapp.com/sendmail', {
-    headers: { "Content-Type": "application/json; charset=utf-8" },
+    headers: { 
+      "Content-Type": "application/json; charset=utf-8",
+      "Authorization": AUTH,
+    },
     method: 'POST',
     body: JSON.stringify(data)
   });
